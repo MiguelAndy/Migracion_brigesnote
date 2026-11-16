@@ -78,3 +78,7 @@ $RECYCLE.BIN/
 ._*
 
 start.ps1
+/public/build
+.phpunit.cache
+/storage/pail
+auth.json

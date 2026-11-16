@@ -1,6 +1,6 @@
 # 🏫 Bridges Note - MINEDU ESCALE Bridge API
 
-Microservicio y API REST en **Laravel 7** diseñado para sincronizar, estructurar y servir el catálogo oficial de instituciones educativas (colegios) y la división política/geográfica (regiones, provincias y distritos) del Perú, consumiendo directamente la API pública oficial de **MINEDU / ESCALE** (*Estadística de la Calidad Educativa*).
+Microservicio y API REST en **Laravel 13** (PHP 8.3) diseñado para sincronizar, estructurar y servir el catálogo oficial de instituciones educativas (colegios) y la división política/geográfica (regiones, provincias y distritos) del Perú, consumiendo directamente la API pública oficial de **MINEDU / ESCALE** (*Estadística de la Calidad Educativa*).
 
 ---
 
@@ -52,12 +52,12 @@ Servir como un **puente de datos optimizado** para aplicaciones cliente (sistema
 
 ## 💻 Requisitos del Sistema
 
-- **PHP:** `7.4.x` (Recomendado) o `8.0.x`.
-  > ⚠️ **Importante:** Laravel 7 no es compatible con PHP 8.1 o superior debido a cambios en la interfaz `ArrayAccess`.
-- **Laravel Framework:** `7.30.7`
+- **PHP:** `8.3` o superior, con las extensiones `pdo_mysql`, `mbstring`, `openssl`, `fileinfo`, `curl`, `gd`, `zip` e `intl`.
+  > ⚠️ **Importante:** Laravel 13 exige PHP 8.3 como mínimo. Con PHP 7.x u 8.0–8.2 `composer install` fallará.
+- **Laravel Framework:** `13.x`
 - **Gestor de Paquetes:** Composer 2.x
-- **Base de Datos:** MySQL 5.7+ / 8.0+ o MariaDB 10.3+
-- **Servidor Web Local:** Laragon (con PHP 7.4 Thread Safe - TS), XAMPP o `php artisan serve`.
+- **Base de Datos:** MySQL 8.0+ o MariaDB 10.6+ (cotejamiento `utf8mb4_unicode_ci`)
+- **Servidor Web Local:** `php artisan serve` (sirve desde `public/`), Laragon o XAMPP apuntando a `public/`.
 
 ---
 
@@ -102,6 +102,12 @@ php artisan sync:locations
 ```bash
 php artisan serve
 ```
+
+### 8. Ejecutar las pruebas (opcional)
+Las pruebas usan una base **separada** (`escalebridge_test`, nunca `escalebridge`). Créala vacía con cotejamiento `utf8mb4_unicode_ci` y ejecuta:
+```bash
+php artisan test
+```
 La aplicación quedará disponible en `http://127.0.0.1:8000`.
 
 ---
@@ -125,9 +131,11 @@ DB_DATABASE=escalebridge
 DB_USERNAME=root
 DB_PASSWORD=
 
-# Controlador de sesión en archivo (no requiere tabla 'sessions' en BD)
-SESSION_DRIVER=file
-CACHE_DRIVER=file
+DB_COLLATION=utf8mb4_unicode_ci
+
+# Sin tablas de sesión/cache/colas en BD
+SESSION_DRIVER=array
+CACHE_STORE=file
 QUEUE_CONNECTION=sync
 ```
 
@@ -263,36 +271,36 @@ brigesnote/
 │   ├── Http/Controllers/
 │   │   └── LocationController.php  # Controlador de endpoints /api/
 │   └── Models/
-│       ├── District.php            # Modelo Distritos
-│       ├── Province.php            # Modelo Provincias
-│       ├── Region.php              # Modelo Regiones
-│       └── School.php              # Modelo Colegios / Escuelas
-├── database/migrations/
-│   ├── ..._create_regions_table.php
-│   ├── ..._create_provinces_table.php
-│   ├── ..._create_districts_table.php
-│   └── ..._create_schools_table.php
+│       ├── District.php · Province.php · Region.php · School.php
+│       └── User.php                # Esqueleto Laravel (sin uso en la API)
+├── bootstrap/app.php               # Routing (web + api), middleware y excepciones
+├── database/migrations/            # users + regions, provinces, districts, schools
+├── public/                         # Punto de entrada (index.php)
 ├── routes/
-│   └── api.php                     # Definición de rutas REST
+│   └── api.php                     # 4 rutas GET bajo /api
+├── tests/
+│   ├── Feature/ApiContractTest.php # Contrato de los 4 endpoints
+│   ├── fixtures/                   # data.json + snapshots/*.json
+│   └── Support/ApiFixtureSeeder.php
 ├── .env.example                    # Plantilla de variables de entorno
-└── .gitignore                      # Reglas de exclusión para Git
+└── .gitignore
 ```
 
 ---
 
 ## 🛠️ Solución de Problemas Frecuentes
 
-### 1. Error: `During inheritance of ArrayAccess: Return type of ... should either be compatible`
-- **Causa:** Estás ejecutando el proyecto con PHP 8.1, 8.2 o superior.
-- **Solución:** Cambia la versión de PHP en Laragon (o en tu servidor) a **PHP 7.4 (Thread Safe)** o **PHP 8.0**.
+### 1. `Your requirements could not be resolved ... requires php ^8.3`
+- **Causa:** Estás usando una versión de PHP anterior a 8.3.
+- **Solución:** Instala PHP 8.3 (NTS o TS) y ejecuta Composer con ese binario.
 
-### 2. Error: `Service Apache can not start ... fcgid.conf` en Laragon
-- **Causa:** Descargaste la versión `nts` (Non-Thread Safe) de PHP en Windows.
-- **Solución:** Descarga e instala en Laragon la versión **Thread Safe (TS)** desde [windows.php.net](https://windows.php.net/downloads/releases/archives/).
+### 2. `Base table or view not found: 1146 Table '...sessions' doesn't exist`
+- **Causa:** `.env` tiene `SESSION_DRIVER=database` y la tabla no existe.
+- **Solución:** Usa `SESSION_DRIVER=array` (la API no necesita sesiones).
 
-### 3. Error: `Base table or view not found: 1146 Table '...sessions' doesn't exist`
-- **Causa:** En el archivo `.env` está configurado `SESSION_DRIVER=database` sin haber migrado la tabla de sesiones.
-- **Solución:** Cambia en `.env` a `SESSION_DRIVER=file`.
+### 3. `cURL error 60: SSL certificate problem` al ejecutar `sync:locations` (Windows)
+- **Causa:** PHP no tiene un bundle de certificados.
+- **Solución:** Descarga `cacert.pem` y configura `curl.cainfo` y `openssl.cafile` en `php.ini`.
 
 ---
 
