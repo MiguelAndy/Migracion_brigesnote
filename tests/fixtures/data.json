@@ -1,0 +1,170 @@
+{
+    "regions": [
+        {
+            "idRegion": "01",
+            "nombreRegion": "Amazonas",
+            "pointX": "-78.0536004",
+            "pointY": "-5.0720733",
+            "zoom": "9",
+            "created_at": "2026-11-16 15:55:42",
+            "updated_at": "2026-11-16 15:55:42"
+        }
+    ],
+    "provinces": [
+        {
+            "idProvincia": "0101",
+            "nombreProvincia": "Chachapoyas",
+            "pointX": "-77.7752878",
+            "pointY": "-6.4437346",
+            "created_at": "2026-11-16 15:55:42",
+            "updated_at": "2026-11-16 15:55:42"
+        },
+        {
+            "idProvincia": "0102",
+            "nombreProvincia": "Bagua",
+            "pointX": "-78.3996834",
+            "pointY": "-5.0902184",
+            "created_at": "2026-11-16 15:56:13",
+            "updated_at": "2026-11-16 15:56:13"
+        },
+        {
+            "idProvincia": "0103",
+            "nombreProvincia": "Bongará",
+            "pointX": "-77.8731039",
+            "pointY": "-5.6835926",
+            "created_at": "2026-11-16 15:56:29",
+            "updated_at": "2026-11-16 15:56:29"
+        },
+        {
+            "idProvincia": "0104",
+            "nombreProvincia": "Condorcanqui",
+            "pointX": "-78.0384002",
+            "pointY": "-4.1656707",
+            "created_at": "2026-11-16 15:56:48",
+            "updated_at": "2026-11-16 15:56:48"
+        },
+        {
+            "idProvincia": "0105",
+            "nombreProvincia": "Luya",
+            "pointX": "-78.0828436",
+            "pointY": "-6.3149275",
+            "created_at": "2026-11-16 15:56:57",
+            "updated_at": "2026-11-16 15:56:57"
+        },
+        {
+            "idProvincia": "0106",
+            "nombreProvincia": "Rodríguez de Mendoza",
+            "pointX": "-77.4546591",
+            "pointY": "-6.3731291",
+            "created_at": "2026-11-16 15:57:38",
+            "updated_at": "2026-11-16 15:57:38"
+        },
+        {
+            "idProvincia": "0107",
+            "nombreProvincia": "Utcubamba",
+            "pointX": "-78.3285333",
+            "pointY": "-5.7704068",
+            "created_at": "2026-11-16 15:57:58",
+            "updated_at": "2026-11-16 15:57:58"
+        }
+    ],
+    "districts": [
+        {
+            "idDistrito": "010104",
+            "nombreDistrito": "Cheto",
+            "created_at": "2026-11-16 15:55:49",
+            "updated_at": "2026-11-16 15:55:49"
+        }
+    ],
+    "schools": [
+        {
+            "codMod": "0257485",
+            "idDistrito": "010104",
+            "nombreCenEdu": "18017",
+            "cenPob": "CHETO",
+            "dirCen": "JIRON ALFONSO UGARTE S/N",
+            "director": "CULQUI ROJAS VICTOR MARIO",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16 15:55:50",
+            "updated_at": "2026-11-16 15:55:50"
+        },
+        {
+            "codMod": "0257493",
+            "idDistrito": "010104",
+            "nombreCenEdu": "18018",
+            "cenPob": "HUACAPAMPA",
+            "dirCen": "PARQUE HUACAPAMPA S/N",
+            "director": "CARPIO LOPEZ MIRTHA LILIANA",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16 15:55:50",
+            "updated_at": "2026-11-16 15:55:50"
+        },
+        {
+            "codMod": "0257501",
+            "idDistrito": "010104",
+            "nombreCenEdu": "18019",
+            "cenPob": "SALICAS",
+            "dirCen": "SALICAS",
+            "director": "REYNA OCHANTE GREGORIA",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16 15:55:50",
+            "updated_at": "2026-11-16 15:55:50"
+        },
+        {
+            "codMod": "0708826",
+            "idDistrito": "010104",
+            "nombreCenEdu": "031",
+            "cenPob": "CHETO",
+            "dirCen": "CALLE UNION 116",
+            "director": "CIEZA HERNANDEZ GULNARA SOBEIDA",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16 15:55:50",
+            "updated_at": "2026-11-16 15:55:50"
+        },
+        {
+            "codMod": "0749432",
+            "idDistrito": "010104",
+            "nombreCenEdu": "045",
+            "cenPob": "HUACAPAMPA",
+            "dirCen": "JIRON PUNO S/N",
+            "director": "MARIN CACHAY LUZ VICTORIA",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16 15:55:50",
+            "updated_at": "2026-11-16 15:55:50"
+        },
+        {
+            "codMod": "1391945",
+            "idDistrito": "010104",
+            "nombreCenEdu": "18017",
+            "cenPob": "CHETO",
+            "dirCen": "JIRON ALFONSO UGARTE S/N",
+            "director": "CULQUI ROJAS VICTOR MARIO",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16 15:55:50",
+            "updated_at": "2026-11-16 15:55:50"
+        },
+        {
+            "codMod": "3951930",
+            "idDistrito": "010104",
+            "nombreCenEdu": "MI ALEGRIA DE VIVIR",
+            "cenPob": "CHETO",
+            "dirCen": "JIRON FRANCISCO BOLOGNESI S/N",
+            "director": "",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16 15:55:50",
+            "updated_at": "2026-11-16 15:55:50"
+        }
+    ],
+    "meta": {
+        "idRegion": "01",
+        "idProvincia": "0101",
+        "idDistrito": "010104"
+    }
+}
