@@ -104,13 +104,13 @@ php artisan sync:locations
 ```bash
 php artisan serve
 ```
+La aplicación quedará disponible en `http://127.0.0.1:8000`.
 
 ### 8. Ejecutar las pruebas (opcional)
 Las pruebas usan una base **separada** (`escalebridge_test`, nunca `escalebridge`). Créala vacía con cotejamiento `utf8mb4_unicode_ci` y ejecuta:
 ```bash
 php artisan test
 ```
-La aplicación quedará disponible en `http://127.0.0.1:8000`.
 
 ---
 
@@ -173,16 +173,18 @@ Obtiene todas las regiones del país.
 - **Respuesta Exitosa (200 OK):**
 ```json
 {
-  "status": "success",
-  "data": [
-    {
-      "idRegion": "15",
-      "nombreRegion": "LIMA",
-      "pointX": -12.046374,
-      "pointY": -77.042793,
-      "zoom": 10
-    }
-  ]
+    "status": "success",
+    "data": [
+        {
+            "idRegion": "01",
+            "nombreRegion": "Amazonas",
+            "pointX": "-78.0536004",
+            "pointY": "-5.0720733",
+            "zoom": 9,
+            "created_at": "2026-11-16T15:55:42.000000Z",
+            "updated_at": "2026-11-16T15:55:42.000000Z"
+        }
+    ]
 }
 ```
 
@@ -193,19 +195,21 @@ Obtiene las provincias pertenecientes a una región (mediante los 2 primeros dí
 
 - **URL:** `/api/provincias/{idRegion}`
 - **Método:** `GET`
-- **Ejemplo:** `/api/provincias/15` (Provincias de Lima)
+- **Ejemplo:** `/api/provincias/01` (Provincias de Amazonas)
 - **Respuesta Exitosa (200 OK):**
 ```json
 {
-  "status": "success",
-  "data": [
-    {
-      "idProvincia": "1501",
-      "nombreProvincia": "LIMA",
-      "pointX": -12.046374,
-      "pointY": -77.042793
-    }
-  ]
+    "status": "success",
+    "data": [
+        {
+            "idProvincia": "0101",
+            "nombreProvincia": "Chachapoyas",
+            "pointX": "-77.7752878",
+            "pointY": "-6.4437346",
+            "created_at": "2026-11-16T15:55:42.000000Z",
+            "updated_at": "2026-11-16T15:55:42.000000Z"
+        }
+    ]
 }
 ```
 
@@ -216,21 +220,19 @@ Obtiene los distritos de una provincia (mediante los 4 dígitos de ubigeo provin
 
 - **URL:** `/api/distritos/{idProvince}`
 - **Método:** `GET`
-- **Ejemplo:** `/api/distritos/1501` (Distritos de la provincia de Lima)
+- **Ejemplo:** `/api/distritos/0101` (Distritos de la provincia de Chachapoyas)
 - **Respuesta Exitosa (200 OK):**
 ```json
 {
-  "status": "success",
-  "data": [
-    {
-      "idDistrito": "150101",
-      "nombreDistrito": "LIMA"
-    },
-    {
-      "idDistrito": "150102",
-      "nombreDistrito": "ANCON"
-    }
-  ]
+    "status": "success",
+    "data": [
+        {
+            "idDistrito": "010104",
+            "nombreDistrito": "Cheto",
+            "created_at": "2026-11-16T15:55:49.000000Z",
+            "updated_at": "2026-11-16T15:55:49.000000Z"
+        }
+    ]
 }
 ```
 
@@ -241,23 +243,25 @@ Obtiene todas las instituciones educativas registradas en un distrito según su 
 
 - **URL:** `/api/colegios/{ubigeo}`
 - **Método:** `GET`
-- **Ejemplo:** `/api/colegios/150101`
+- **Ejemplo:** `/api/colegios/010104`
 - **Respuesta Exitosa (200 OK):**
 ```json
 {
-  "status": "success",
-  "data": [
-    {
-      "codMod": "0273572",
-      "idDistrito": "150101",
-      "nombreCenEdu": "JUAN JIMENEZ PIMENTEL",
-      "cenPob": "LIMA",
-      "dirCen": "JR. LAMPA 240",
-      "director": "PEDRO PEREZ",
-      "dis_crecer": null,
-      "dis_juntos": null
-    }
-  ]
+    "status": "success",
+    "data": [
+        {
+            "codMod": "0257485",
+            "idDistrito": "010104",
+            "nombreCenEdu": "18017",
+            "cenPob": "CHETO",
+            "dirCen": "JIRON ALFONSO UGARTE S/N",
+            "director": "CULQUI ROJAS VICTOR MARIO",
+            "dis_crecer": "Segunda etapa",
+            "dis_juntos": "Segunda etapa",
+            "created_at": "2026-11-16T15:55:50.000000Z",
+            "updated_at": "2026-11-16T15:55:50.000000Z"
+        }
+    ]
 }
 ```
 
