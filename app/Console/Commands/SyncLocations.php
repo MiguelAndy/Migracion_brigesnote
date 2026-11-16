@@ -14,12 +14,7 @@ class SyncLocations extends Command
     protected $signature = 'sync:locations';
     protected $description = 'Sincroniza regiones, provincias, distritos y escuelas desde la API y las registra en la base de datos';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    public function handle()
+    public function handle(): int
     {
         $this->info('Iniciando sincronización de ubicaciones...');
 
