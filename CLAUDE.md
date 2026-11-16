@@ -46,7 +46,7 @@ Congelado por tests/Feature/ApiContractTest.php + tests/fixtures/snapshots/*.jso
 - tests/Support/ApiFixtureSeeder.php + tests/fixtures/ — cadena de prueba (1 región, 7 provincias, 1 distrito, 7 colegios)
 
 ## Historial de migración
-- Laravel 7 → 8 descartado: Composer bloquea todas las versiones 8.x–11.x por avisos de seguridad (EOL).
+- Laravel 7 → 8 descartado: Composer bloquea todas las versiones estables 8.x por avisos de seguridad; L8–L11 sin soporte.
 - Estrategia final: esqueleto Laravel 13 (PHP 8.3, soporte de seguridad hasta 2028) + portar el código.
 - Commits en migracion/php83: esqueleto L13 → modelos/migraciones → rutas/controladores → sync:locations → tests en verde → limpieza/docs.
 - Decisiones: sin Sanctum ni ruta /user (boilerplate L7 fuera del contrato); CACHE_STORE=file, QUEUE_CONNECTION=sync, SESSION_DRIVER=array; migraciones cache/jobs del esqueleto eliminadas.

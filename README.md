@@ -1,5 +1,7 @@
 # 🏫 Bridges Note - MINEDU ESCALE Bridge API
 
+> 📄 Plan y justificación de la migración a PHP 8.3 / Laravel 13: [docs/PLAN_MIGRACION.md](docs/PLAN_MIGRACION.md)
+
 Microservicio y API REST en **Laravel 13** (PHP 8.3) diseñado para sincronizar, estructurar y servir el catálogo oficial de instituciones educativas (colegios) y la división política/geográfica (regiones, provincias y distritos) del Perú, consumiendo directamente la API pública oficial de **MINEDU / ESCALE** (*Estadística de la Calidad Educativa*).
 
 ---
